@@ -1,0 +1,9 @@
+SISTEMA/node_modules
+SISTEMA/.parcel-cache
+SISTEMA/dist
+
+WEB/node_modules
+WEB/dist
+WEB/.parcel-cache
+
+.idea

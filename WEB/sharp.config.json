@@ -1,0 +1,11 @@
+{
+  "jpeg": {
+    "mozjpeg": true
+  },
+  "webp": {
+    "nearLossless": true
+  },
+  "png": {
+    "palette": true
+  }
+}

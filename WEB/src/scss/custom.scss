@@ -1,0 +1,57 @@
+//#region variables bootstrap
+$primary: #1b32be;
+//#endregion
+
+//#region variables fontawesome
+$fa-font-path: "../webfonts";
+//#endregion
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/regular";
+//#region CSS Perzonalizado
+//#region Logo
+.imagen-empresa{
+  width: 80px;
+}
+
+.nombre_empresa{
+  -webkit-text-stroke: 0.6px white;
+  color: red;
+}
+//#endregion
+//#region carousel
+.carousel-item>img{
+  height: 750px;
+}
+//#endregion
+//#region texto-general
+.text-justify{
+  text-align: justify;
+}
+//#endregion
+//#region contactanos
+.form-contacto{
+  background: url("../img/general/images.jpg") no-repeat;
+  background-size: cover;
+}
+//#endregion
+//#region MOBILE 320x568
+@media (max-width: 320px) {
+  .imagen-empresa{
+    width: 50px;
+    height: 50px;
+  }
+  .carousel-item>img{
+    height: 350px !important;
+  }
+}
+@media (max-width: 500px) {
+  .carousel-item>img{
+    height: 500px;
+  }
+}
+//#endregion
+//#endregion
