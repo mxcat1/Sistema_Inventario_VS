@@ -52,14 +52,29 @@ i{
 }
 //#endregion
 //#region hover menu
-.hover-item:hover{
+.hover-item>a:hover{
   background: #263B9DFF;
 }
+.hover-item>ul>li:hover{
+  background: #263B9DFF;
+}
+
 //#endregion
 //#region texto-w-90
 .w-90{
   width: 90% !important;
 }
+//#endregion
+//#region Fondos
+
+.bg-login{
+  background: rgba(0,20,95,0.7);
+}
+.fondo-login{
+  background: url("../img/logo/fondo1.jpg") center no-repeat;
+  background-size: cover;
+}
+
 //#endregion
 //#region MOBILE 320x568
 @media (max-width: 320px) {
