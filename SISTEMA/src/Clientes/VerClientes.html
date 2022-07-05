@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="../img/logo/logo-final-sinmargen.png">
     <link rel="stylesheet" href="../scss/custom.scss">
     <script type="module" src="../js/app.js"></script>
-    <script type="module" src="../js/tabla.js"></script>
 
 
     <title>Sistema Fabrica de Velas - Lista de Clientes</title>
@@ -125,12 +124,109 @@
                     <div class="col-12">
                         <div id="table1"></div>
                     </div>
+                    <!--                    #region modal-->
+                    <div class="modal fade" id="modaleditcliente" tabindex="-1" aria-labelledby="modaleditclienteLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modaleditclienteLabel">New message</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="row">
+                                            <input type="hidden" class="form-control" id="idpersona">
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" id="nombre">
+                                            </div>
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="apellidopaterno" class="form-label">Apellido Paterno</label>
+                                                <input type="text" class="form-control" id="apellidopaterno">
+                                            </div>
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="apellidomaterno" class="form-label">Apellido Materno</label>
+                                                <input type="text" class="form-control" id="apellidomaterno">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="razonsocial" class="form-label">Razon Social</label>
+                                                <input type="text" class="form-control" id="razonsocial">
+                                            </div>
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="tipodocumento" class="form-label">Tipo de Documento</label>
+                                                <select class="form-select" aria-label="Default select example" id="tipodocumento">
+                                                    <option selected>Elija Su Tipo de Documento</option>
+                                                    <option value="1">DNI</option>
+                                                    <option value="2">RUC</option>
+                                                    <option value="3">Carnet de Extranjeria</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="documento" class="form-label">Nro Documento</label>
+                                                <input type="text" class="form-control" id="documento">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="direccion" class="form-label">Direccion</label>
+                                                <input type="text" class="form-control" id="direccion">
+                                            </div>
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="fecha" class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" id="fecha">
+                                            </div>
+                                            <div class="mb-3 col-12 col-sm-4">
+                                                <label for="correo" class="form-label">Correo</label>
+                                                <input type="email" class="form-control" id="correo">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" id="btneditarcliente">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    #endregion-->
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!--#endregion-->
-
+<script type="module" src="../js/Cliente/ListaClienteDash.js"></script>
+<script !src="">
+    function eliminarcli(idpersona){
+        swal({
+            title: "Esta Seguro de Eliminar",
+            text: "Una vez eliminado los datos no se podra recuperar",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`https://localhost:7058/api/Cliente/${idpersona}`,{method: "DELETE"})
+                        .then(function (response) {
+                            console.log(response);
+                            swal("Se Elimino con Exito").then((value) => {
+                                window.location.href = "/Clientes/VerClientes.html"
+                            });
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                } else {
+                    swal("No se Eliminó ningun Dato", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+</script>
 </body>
 </html>

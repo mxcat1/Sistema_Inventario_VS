@@ -1,14 +1,14 @@
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import * as bootstrap from 'bootstrap'
 
 // import * as Grid from "gridjs";
 // Importando css
 import "gridjs/dist/theme/mermaid.css";
+
 // Importando modulos
 // import './graficos'
 // import './tabla'
 //Codigo base
-
-
+// let da=require('crypto').randomBytes(256).toString('utf-8')
 
 // new gridjs.Grid({
 //
