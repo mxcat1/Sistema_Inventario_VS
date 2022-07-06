@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const detalleregistro = document.querySelector('.detalle')
     const cbproducto = document.getElementById('producto')
     const nbcantidad = document.getElementById('cantidad')
+    const precio = document.getElementById('precio')
     const registroid = document.getElementById('registro')
     let detalleid = document.getElementById('detalle')
     let registrodata
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btncreardetalle.addEventListener('click', () => {
         let producto = document.getElementById('producto')
         let cantidad = document.getElementById('cantidad')
-        let precio = document.getElementById('precio')
+
         let idregistro = document.getElementById('registro')
         let iddetalle = document.getElementById('detalle')
 
@@ -142,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "cantidad": cantidad.value,
             "precioTotal": precio.value,
         })
+        registrodata.precioTotal=parseFloat(registrodata.precioTotal)+parseFloat(precio.value)
         console.log(registrodata)
         localStorage.setItem('registro', JSON.stringify(registrodata))
         let datare = registrodata.detalleRegistros.map(detallereg => [detallereg.idDetalleRegistro, detallereg.producto, detallereg.cantidad, detallereg.precioTotal])
